@@ -50,9 +50,16 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
   sbr_obi_req_t user_error_obi_req;
   sbr_obi_rsp_t user_error_obi_rsp;
 
+  // GPIO periph bus
+  sbr_obi_req_t bbs32_obi_req;
+  sbr_obi_rsp_t bbs32_obi_rsp;
+
   // Fanout into more readable signals
   assign user_error_obi_req              = all_user_sbr_obi_req[UserError];
   assign all_user_sbr_obi_rsp[UserError] = user_error_obi_rsp;
+
+  assign bbs32_obi_req                   = all_user_sbr_obi_req[UserBBS32];
+  assign all_user_sbr_obi_rsp[UserBBS32] = bbs32_obi_rsp;
 
 
   //-----------------------------------------------------------------------------------------------
@@ -114,5 +121,20 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
     .obi_req_i  ( user_error_obi_req ),
     .obi_rsp_o  ( user_error_obi_rsp )
   );
+
+
+  // GPIO
+  bbs32_top #(
+    .ObiCfg    ( SbrObiCfg     ),
+    .obi_req_t ( sbr_obi_req_t ),
+    .obi_rsp_t ( sbr_obi_rsp_t )
+  ) i_bbs32_top (
+    .clk_i,
+    .rst_ni,
+    .obi_req_i      ( bbs32_obi_req ),
+    .obi_rsp_o      ( bbs32_obi_rsp )
+  );
+
+
 
 endmodule

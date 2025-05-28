@@ -33,6 +33,7 @@ sources:
   - rtl/soc_ctrl/soc_ctrl_reg_pkg.sv
   - rtl/gpio/gpio_reg_pkg.sv
   # add your design files containing anything but modules (packages) here
+  - rtl/user_domain/bbs32_reg_pkg.sv
 
     # RTL
   - target: not(netlist_yosys)
@@ -46,6 +47,11 @@ sources:
       - rtl/croc_domain.sv
       - rtl/user_domain.sv
       # add your design files with modules here
+      - rtl/user_domain/mul32.sv
+      - rtl/user_domain/mod64.sv
+      - rtl/user_domain/bbs32.sv
+      - rtl/user_domain/bbs32_top.sv
+      - rtl/user_domain/bbs32_reg_top.sv
       # Level 3
       - rtl/croc_soc.sv
 
