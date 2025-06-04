@@ -19,3 +19,13 @@ make verilator
 OR
 
 [git] make software
+
+
+===================================
+Flow:
+1. Generate flist:
+[git] make yosys-flist
+
+2. Synthesis:
+[git] make yosys
+
