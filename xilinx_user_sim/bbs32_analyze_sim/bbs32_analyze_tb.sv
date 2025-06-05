@@ -7,7 +7,8 @@
 
 // `define RAND_WORDS          (32)
 `define RAND_WORDS          (64)
-`define EXPORT_FILE_NAME    ("D:/data_files/git/vlsi2_proj/src/bbs32/sim/bbs32_rtl_results.csv")
+//`define EXPORT_FILE_NAME    ("D:/data_files/git/vlsi2_proj/src/bbs32/sim/bbs32_rtl_results.csv")
+`define EXPORT_FILE_NAME    ("./../../../../bbs32_analyze_sim/bbs32_rtl_results.csv")
 
 module bbs32_analyze_tb();
 
