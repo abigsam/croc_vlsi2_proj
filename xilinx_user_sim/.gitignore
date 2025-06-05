@@ -1,0 +1,6 @@
+bbs32_sim.*
+!bbs32_sim.xpr
+.Xil
+*.jou
+*.log
+*.str
